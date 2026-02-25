@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="logo.png" alt="" width="100   px">
+        </div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Séries</a>
+            <a href="#">Filmes</a>
+            <a href="#">Minha lista</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+     <div class="banner-conteudo">
+        <p class="titulo">João Henrique e Maria Luiza</p>
+
+        <p class="detalhes">
+            <span>22 de janeiro, 1 TEMPORADA JUNTOS</span>
+        </p>
+        <p class="descricao">
+            O que era para ser apenas mais um encontro inesperado virou a melhor temporada da minha vida.
+            Entre conversas simples, risadas espontâneas e silêncios que diziam tudo, dois caminhos diferentes decidiram caminhar juntos.
+            Não foi roteiro perfeito, teve medo, insegurança e momentos de dúvida. Mas tivemos a decisão, e hoje temos certeza que é para o resto da vida
+            Teve amor crescendo nos detalhes no, abraço demorado, no olhar que entende sem precisar explicar, no companheirismo.
+            Algumas histórias são escritas por acaso. A nossa foi escrita por Deus! E é confirmada todos os dias pela nossa vontade de ficar.
+
+        </p>
+        
+        <div id="videoModal" class="video-modal">
+            <div class="video-conteudo">
+                <span class="fechar" onclick="fecharVideo()">&times;</span>
+                <video id="meuVideo" controls>
+                    <source src="./videos/meuvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="botoes">
+         <button onclick="abrirVideo()">
+    <i class="fa-solid fa-play" style="color: rgb(0, 0, 0);"></i> Assistir
+</button>
+            <button> <i class="fa-solid fa-star" style="color: rgb(0, 0, 0);"></i> Favoritar</button>
+        </div>
+     </div>
+    </section>
+
+    <section class="momentos">
+        <h2>Nossos Melhores Momentos</h2>
+
+        <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"> <img src="./fotos/img9.JPEG"></div>
+            <div class="swiper-slide"> <img src="./fotos/img8.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img3.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img4.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img5.JPEG"></div>
+            <div class="swiper-slide"> <img src="./fotos/img6.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img7.JPEG"></div>
+            <div class="swiper-slide"> <img src="./fotos/img1.JPEG"></div>
+            <div class="swiper-slide"> <img src="./fotos/img2.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img10.jpeg"></div>
+            <div class="swiper-slide"> <img src="./fotos/img11.JPEG"></div>
+
+        </div>
+
+        </div>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <scrip src="script.js"></script>
+
+    <script>
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    slidesPerView: 2,
+    spaceBetween: 10,
+    breakpoints: { 
+        768: { 
+            slidesPerView: 3,
+            spaceBetween: 15,
+        }
+
+    }
+});    </script>
+
+         <script>
+         function abrirVideo() {
+            const modal = document.getElementById("videoModal");
+            const video = document.getElementById("meuVideo");
+
+            modal.style.display = "flex";
+
+            video.play();
+
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { 
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+
+        function fecharVideo() {
+            const modal = document.getElementById("videoModal");
+            const video = document.getElementById("meuVideo");
+
+            modal.style.display = "none";
+            video.pause();
+            video.currentTime = 0;
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        }
+        </script>
+</body>
+</html>
